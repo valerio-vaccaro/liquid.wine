@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="description" content="Liquid.wine">
+      <meta name="author" content="Sassicaioshi Freisamoto">
+      <link rel="icon" href="">
+      <title>🍷 Liquid wine</title>
+      <link href="/static/bootstrap.min.css" rel="stylesheet">
+      <link href="/static/wine.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">Home</a>
+              <a class="navbar-brand" href="/status">Status</a>
+              <a class="navbar-brand" href="/stats">Activities</a>
+              <a class="navbar-brand" href="/balance">Balance</a>
+              <a class="navbar-brand" href="/utxos">UTXOs</a>
+              <a class="navbar-brand" href="/authorizer">Authorizer</a>
+              <a class="navbar-brand" href="https://blockstream.com/liquid/securities/" target="_blank">Liquid securities</a>
+              <a class="navbar-brand" href="https://blockstream.info/liquid/" target="_blank">Explorer</a>
+              <a class="navbar-brand" href="/about">Credits</a>
+            </div>
+         </div>
+      </nav>
+
+      <div class="container-fluid">
+         <br/><br/><br/><br/>
+         <div id="sl">
+            <br/><br/>
+
+              <div class="well">
+                <h3>External Authorization</h3>
+                <p>Pinot asset is use an external "Issuer Authorization Endpoint" created in liquid.wine, if you want use for your testing Liquid Securities coin just set the "Issuer Authorization Endpoint" to https://liquid.wine via API.</p>
+                <p>The liquid.wine "Issuer Authorization Endpoint" use a whitelist of GAIDs (inputs and outputs are checked) for confirm or reject a transaction.</p>
+                <h3>Allowed GAIDs</h3>
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Gaid</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>2020-02-19 18:00:00</td>
+                    <td>GA3t8FuWf3moiqASrzexakuci2iNkr</td>
+                    <td>Can not be deleted!</td>
+                  </tr>
+                  {{#gaids}}
+                  <tr>
+                    <td>{{timestamp}}</td>
+                    <td>{{gaid}}</td>
+                    <td><a href="/authorizer?command=delete&gaid={{gaid}}"><button type="button" class="btn btn-danger">Remove GAID</button></a></td>
+                  </tr>
+                  {{/gaids}}
+                </tbody>
+              </table>
+
+              <form class="form-inline"  action="/authorizer">
+                <input type="hidden" id="command" name="command" value="add">
+                <div class="form-group mb-2">
+                  <p>Insert a new GAID from an Authorized Asset subaccount in the whitelist</p>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                  <input type="text" class="form-control" id="gaid" name="gaid" minlength="10" maxlength="50" size="50" placeholder="GAID">
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">ADD</button>
+              </form>
+              <center><p>{{gaid_validate}}</p></center>
+
+              </div>
+
+              <div class="well">
+                <h3>External authorizer messages</h3>
+                <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col">Request</th>
+                    <th scope="col">Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#auths}}
+                  <tr>
+                    <td>{{timestamp}}</td>
+                    <td><pre style="white-space: normal !important;word-wrap: break-word !important; max-height: 200px;">{{request}}</pre></td>
+                    <td>{{result}}</td>
+                  </tr>
+                  {{/auths}}
+                </tbody>
+              </table>
+              </div>
+
+            </div>
+
+         </div>
+      </div>
+      </div>
+      <script src="/static/jquery.min.js"></script>
+      <script src="/static/bootstrap.min.js"></script>
+   </body>
+</html>

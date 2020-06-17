@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+     <meta charset="utf-8">
+     <meta name="description" content="Liquid.wine">
+     <meta name="author" content="Sassicaioshi Freisamoto">
+     <link rel="icon" href="">
+     <title>🍷 Liquid wine</title>
+     <link href="/static/bootstrap.min.css" rel="stylesheet">
+     <link href="/static/wine.css" rel="stylesheet">
+   </head>
+   <body>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+         <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="/">Home</a>
+              <a class="navbar-brand" href="/status">Status</a>
+              <a class="navbar-brand" href="/stats">Activities</a>
+              <a class="navbar-brand" href="/balance">Balance</a>
+              <a class="navbar-brand" href="/utxos">UTXOs</a>
+              <a class="navbar-brand" href="/authorizer">Authorizer</a>
+              <a class="navbar-brand" href="https://blockstream.com/liquid/securities/" target="_blank">Liquid securities</a>
+              <a class="navbar-brand" href="https://blockstream.info/liquid/" target="_blank">Explorer</a>
+              <a class="navbar-brand" href="/about">Credits</a>
+            </div>
+         </div>
+      </nav>
+      <div class="container-fluid">
+         <br/><br/><br/><br/>
+         <div id="sl">
+            <br/><br/>
+            <div class="well">
+
+               <h3>Wine security tokens</h3>
+               <p>Drinking is important, <b>Liquid.wine</b> provide you best tokens security on Liquid. You will receive some "glass" tokens of your favourite drink using the form you will find in this page.</p>
+               <p>If you can't get your tokens or you want to understand what Liquid is, join the <a href="https://t.me/liquid_community" target="_blank">Liquid community on telegram</a> or follow <a href="https://twitter.com/drunkoshi" target="_blank" >Drunkoshi on Twitter</a>.</p><br/>
+
+               <h3>Available token</h3>
+               {{#tokens}}
+               <p>Name: {{name}}</p>
+               <p>Asset UUID: {{asset_uuid}}</p>
+               <p>Asset ID: {{asset_id}}</p>
+               <p>Investors Restricted: {{investors_restricted}}</p>
+               <p>Issuer Authorization Endpoint: {{issuer_authorization_endpoint}}</p>
+               {{/tokens}}
+
+               <h3>When I will receive my tokens?</h3>
+               <center><img src="/static/under_costruction.png"></center>
+               <p>Sassicaioshi Freisamoto doesn't like spam and plans to do only ONE transaction per day (normally while he is drunk).</p>
+
+               <h3>Who pays?</h3>
+               <p>Sassicaioshi Freisamoto loves you and will pay the fees. If you want to contribute with Liquid BTC you are welcome to, please send to the following address <a href="https://blockstream.info/liquid/address/VTq2xrGoMBoJwM83uWEQLsduu4Y1pembfDWSJMyFEsHgYBmrcHRXZJqVL67GAfBtv92Po4Mnmcn16PWW" target="_blank"><code>VTq2xrGoMBoJwM83uWEQLsduu4Y1pembfDWSJMyFEsHgYBmrcHRXZJqVL67GAfBtv92Po4Mnmcn16PWW</code></a>.</p>
+
+            </div>
+         </div>
+      </div>
+      </div>
+      <script src="/static/jquery.min.js"></script>
+      <script src="/static/bootstrap.min.js"></script>
+   </body>
+</html>
