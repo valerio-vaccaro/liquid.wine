@@ -44,8 +44,36 @@
                <p>Issuer Authorization Endpoint: {{issuer_authorization_endpoint}}</p>
                {{/tokens}}
 
+               {{#form}}
+               <h3>How to receive tokens?</h3>
+               You can receive some tokens in th following way:
+               <ul>
+                 <li>Install the Blockstream Green and create a new Liquid wallet,</li>
+                 <li>Crete a Liquid Securities Account,</li>
+                 <li>Click on receive and copy the Account ID,</li>
+                 <li>Paste the Account ID in the following form.</li>
+               </ul>
+               <form action="/" method="get">
+                  <div class="form-group row">
+                     <label for="address" class="col-sm-2 col-form-label">Liquid Securites Account ID</label>
+                     <div class="col-sm-10">
+                        <input type="text" class="form-control" name="gaid" required="gaid" id="address" placeholder="GAID">
+                     </div>
+                  </div>
+                  <div class="form-group row">
+                     <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Drink Responsibly</button>
+                     </div>
+                  </div>
+               </form>
+               {{/form}}
+
+               {{^form}}
+                <h3>Result</h3>
+                {{status}}
+               {{/form}}
+
                <h3>When I will receive my tokens?</h3>
-               <center><img src="/static/under_costruction.png"></center>
                <p>Sassicaioshi Freisamoto doesn't like spam and plans to do only ONE transaction per day (normally while he is drunk).</p>
 
                <h3>Who pays?</h3>

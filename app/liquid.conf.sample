@@ -16,3 +16,12 @@ passphrase:
 token:
 fixedGaid:
 authorizerAddress:
+
+[BETA]
+token:
+fixedGaid:
+authorizerAddress:
+
+[GDK]
+mnemonic:
+subaccount:
