@@ -4,7 +4,7 @@ Click==7.0
 customidenticon==0.1.5
 cycler==0.10.0
 descartes==1.1.0
-Flask==1.0.2
+Flask==2.3.2
 Flask-QRcode==2.0.2
 Flask-SocketIO==4.2.0
 Flask-Stache==0.1.1
